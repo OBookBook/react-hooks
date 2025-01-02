@@ -5,6 +5,10 @@ const Lesson1_1 = () => {
   const handleClick = () => {
     setAge(age + 1);
     console.log(age);
+    setAge(age + 1);
+    console.log(age);
+    setAge(age + 1);
+    console.log(age);
   };
 
   return (
