@@ -1,7 +1,9 @@
+import { useState } from "react";
+
 const Lesson1_1 = () => {
-  let age = 0;
+  const [age, setAge] = useState<number>(0);
   const handleClick = () => {
-    age = age + 1;
+    setAge(age + 1);
     console.log(age);
   };
 
