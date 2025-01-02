@@ -3,12 +3,12 @@ import { useState } from "react";
 const Lesson1_1 = () => {
   const [age, setAge] = useState<number>(0);
   const handleClick = () => {
-    setAge(age + 1);
-    console.log(age);
-    setAge(age + 1);
-    console.log(age);
-    setAge(age + 1);
-    console.log(age);
+    setAge((age) => age + 1);
+    console.log(age); // 0 | 3
+    setAge((age) => age + 1);
+    console.log(age); // 0 | 3
+    setAge((age) => age + 1);
+    console.log(age); // 0 | 3
   };
 
   return (
