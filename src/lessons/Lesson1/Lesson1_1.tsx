@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 const Lesson1_1 = () => {
   const [age, setAge] = useState<number>(0);
-  console.log("rendaring");
+  const [name, setName] = useState<string>("NoName");
+
   const handleClick = () => {
     setAge((age) => age + 1);
     setAge((age) => age + 1);
-    setAge((age) => age + 1); // ここで再レンダリングされる
+    setAge((age) => age + 1);
   };
 
   return (
     <div>
-      <input type="text" />
+      <input
+        type="text"
+        value={name}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+      />
       <button
         className="border p-2 rounded-md bg-red-100"
         onClick={handleClick}
