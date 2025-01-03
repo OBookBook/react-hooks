@@ -3,14 +3,15 @@ import { fetchBio } from "./fetchBio";
 
 const Lesson2_2 = () => {
   const [person, setPerson] = useState<string>("naobe");
+  const [bio, setBio] = useState<string | null>(null);
 
   useEffect(() => {
     const startFetching = async () => {
       const resoponse = await fetchBio(person);
-      console.log(resoponse);
+      setBio(resoponse);
     };
     startFetching();
-  }, []);
+  }, [person]);
 
   return (
     <div>
@@ -21,8 +22,8 @@ const Lesson2_2 = () => {
       </select>
 
       <hr />
-
-      <p className="text-black">{"Loading..."}</p>
+      {/* ??（Nullish Coalescing Operator）: これは「null または undefined だった場合 */}
+      <p className="text-black">{bio ?? "Loading..."}</p>
     </div>
   );
 };
