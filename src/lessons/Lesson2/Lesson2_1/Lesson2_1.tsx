@@ -8,6 +8,11 @@ const Lesson2_1 = () => {
       setPosition({ x: e.clientX, y: e.clientY });
     }
     window.addEventListener("pointermove", handleMove);
+
+    return () => {
+      // アンマウント(Reactコンポーネントが画面から「削除」されたり、「消去」される際の状態)する前に発火
+      window.removeEventListener("pointermove", handleMove); // Listener(監視) を クリーンアップ
+    };
   }, []);
 
   return (
