@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
 type User = {
-  user: string;
+  id: string;
   username: string;
   email: string;
 };
@@ -16,12 +16,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used with in an AuthProvider");
+  }
   return context;
 };
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const login = (userInfo: any) => {
+  const login = (userInfo: User) => {
     if (
       userInfo.username === "testUser" &&
       userInfo.email === "test@gmail.com"
