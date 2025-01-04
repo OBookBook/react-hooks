@@ -4,6 +4,7 @@ const Lesson5_1 = () => {
   const [count1, setCount1] = useState<number>(0);
   const [count2, setCount2] = useState<number>(0);
 
+  console.log("Parent Renderring");
   return (
     <div>
       <button
@@ -26,6 +27,7 @@ const Lesson5_1 = () => {
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Child = ({ count2 }: { count2: number }) => {
+  console.log("Child Rendering");
   //重い処理
   let i = 0;
   while (i < 10000000) i++;
