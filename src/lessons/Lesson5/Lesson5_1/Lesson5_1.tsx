@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
 const Lesson5_1 = () => {
   const [count1, setCount1] = useState<number>(0);
@@ -26,12 +26,12 @@ const Lesson5_1 = () => {
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
-const Child = ({ count2 }: { count2: number }) => {
+const Child = memo(({ count2 }: { count2: number }) => {
   console.log("Child Rendering");
   //重い処理
   let i = 0;
   while (i < 10000000) i++;
   return <p>Child: {count2}</p>;
-};
+});
 
 export default Lesson5_1;
