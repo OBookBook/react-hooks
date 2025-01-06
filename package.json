@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "react": "^18.3.0-canary-6db7f4209-20231021",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.3.0-canary-6db7f4209-20231021",
     "swr": "^2.3.0"
   },
   "devDependencies": {
