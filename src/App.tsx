@@ -13,7 +13,8 @@ import "./App.css";
 // import Lesson5_2 from "./lessons/Lesson5/Lesson5_2/Lesson5_2";
 // import Lesson5_3 from "./lessons/Lesson5/Lesson5_3/Lesson5_3";
 // import Lesson6_1 from "./lessons/Lesson6/Lesson6_1/Lesson6_1";
-import Lesson7_1 from "./lessons/Lesson7/Lesson7_1/Lesson7_1";
+// import Lesson7_1 from "./lessons/Lesson7/Lesson7_1/Lesson7_1";
+import Lesson7_2 from "./lessons/Lesson7/Lesson7_2/Lesson7_2";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
       {/* <Lesson5_2 /> */}
       {/* <Lesson5_3 /> */}
       {/* <Lesson6_1 /> */}
-      <Lesson7_1 />
+      {/* <Lesson7_1 /> */}
+      <Lesson7_2 />
     </div>
   );
 }
