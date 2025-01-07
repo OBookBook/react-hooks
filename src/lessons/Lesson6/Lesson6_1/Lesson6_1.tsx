@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Thread from "./Thread";
+import { deliverMessage } from "./actions";
 
 export type Message = {
   text: string;
@@ -7,9 +9,20 @@ export type Message = {
 };
 
 const Lesson6_1 = () => {
+  const [messages, setMessages] = useState<Message[]>([
+    { text: "Hello World", sending: false, key: 1 },
+  ]);
+  const sendMessage = async (formData: FormData) => {
+    const sendMessage = await deliverMessage(formData.get("message") as string);
+    setMessages((messages) => [
+      ...messages,
+      { text: sendMessage, sending: false, key: messages.length + 1 },
+    ]);
+  };
+
   return (
     <div>
-      <Thread />
+      <Thread messages={messages} sendMessage={sendMessage} />
     </div>
   );
 };

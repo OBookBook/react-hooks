@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useTransition } from "react";
 
 const TabButton = ({
   children,
@@ -9,6 +9,8 @@ const TabButton = ({
   isActive: boolean;
   onClick: () => void;
 }) => {
+  const [isPending, startTransition] = useTransition();
+
   if (isActive) {
     return (
       <button className="bg-orange-100 px-2 py-2 rounded-md border-2">
@@ -17,10 +19,16 @@ const TabButton = ({
     );
   }
 
+  if (isPending) {
+    return <div> ...Loading</div>;
+  }
+
   return (
     <button
       onClick={() => {
-        onClick();
+        startTransition(() => {
+          onClick();
+        });
       }}
       className="border-2 px-2 py-2 rounded-md"
     >
